@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArabFX Journal | Live Charts</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #080b12;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #292b32;
+    }
+    h1 { color: #d6ad55; margin: 0; }
+    p { color: #aaa; }
+    .chart {
+      margin: 15px;
+      height: 75vh;
+      min-height: 500px;
+    }
+    .chart iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    footer {
+      padding: 15px;
+      color: #999;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ArabFX Journal</h1>
+    <p>Forex Market Analysis · TradingView Charts</p>
+  </header>
+
+  <div class="chart">
+    <iframe
+      src="https://www.tradingview.com/widgetembed/?symbol=FX%3AEURUSD&interval=15&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=true&saveimage=1&details=1&hotlist=1&calendar=0"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <footer>
+    Educational chart analysis only. No broker connection or trade execution.
+  </footer>
+</body>
+</html>
