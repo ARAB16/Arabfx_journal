@@ -42,6 +42,56 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:28px}
     <div class="card"><div class="stat-label">Net P/L</div><div class="stat-value" id="net">0.00</div></div>
     <div class="card"><div class="stat-label">Average R:R</div><div class="stat-value gold" id="avgRR">—</div></div>
   </section>
+  
+<section class="card" style="margin-bottom:20px">
+  <h2 class="section-title">Live Forex Charts</h2>
+  <p class="small">Explore currency markets and practise technical analysis.</p>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px">
+    <select id="arabfxPair" onchange="changeArabChart()">
+      <option value="FX:EURUSD">EUR/USD</option>
+      <option value="FX:GBPUSD">GBP/USD</option>
+      <option value="FX:USDJPY">USD/JPY</option>
+      <option value="FX:USDCHF">USD/CHF</option>
+      <option value="FX:AUDUSD">AUD/USD</option>
+      <option value="FX:NZDUSD">NZD/USD</option>
+      <option value="FX:USDCAD">USD/CAD</option>
+      <option value="OANDA:XAUUSD">XAU/USD (Gold)</option>
+    </select>
+
+    <select id="arabfxTime" onchange="changeArabChart()">
+      <option value="15">15 minutes</option>
+      <option value="5">5 minutes</option>
+      <option value="30">30 minutes</option>
+      <option value="60">1 hour</option>
+      <option value="240">4 hours</option>
+      <option value="D">Daily</option>
+    </select>
+  </div>
+
+  <div style="height:600px;min-height:450px">
+    <iframe id="arabfxTradingView"
+      title="TradingView Forex Chart"
+      src="https://www.tradingview.com/widgetembed/?symbol=FX%3AEURUSD&interval=15&theme=dark&style=1&timezone=Etc%2FUTC&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=true"
+      style="width:100%;height:100%;border:0"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <p class="small">Charts provided by TradingView. Educational use only.</p>
+</section>
+
+<script>
+function changeArabChart() {
+  const pair = document.getElementById('arabfxPair').value;
+  const timeframe = document.getElementById('arabfxTime').value;
+  const url = 'https://www.tradingview.com/widgetembed/?symbol='
+    + encodeURIComponent(pair)
+    + '&interval=' + encodeURIComponent(timeframe)
+    + '&theme=dark&style=1&timezone=Etc%2FUTC'
+    + '&withdateranges=1&hide_side_toolbar=0&allow_symbol_change=true';
+  document.getElementById('arabfxTradingView').src = url;
+}
+</script>
   <div class="layout">
     <section class="card">
       <h2 class="section-title" id="formTitle">Add a trade</h2>
